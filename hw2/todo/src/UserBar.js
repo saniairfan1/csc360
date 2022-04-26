@@ -4,22 +4,20 @@ import Logout from "./Logout";
 import Register from "./Register";
 import TodoList from "./TodoList";
 
-export default function UserBar() {
-  
-  const user = "Sania";
-  //if user is a non empty string, "" is empty string
-  if (user) {
+export default function UserBar({user, setUser}) {
+
+  if (user) { 
     return (
       <>
-      <Logout user={user} />
+      <Logout user={user} setUser={setUser} />
       <TodoList/>
       </>
     )
   } else {
     return (
       <>
-        <Login/>
-        <Register/>
+        <Login setUser={setUser} />
+        <Register setUser={setUser} />
       </>
     );
   }
