@@ -6,10 +6,12 @@ import React, {useState} from "react";
 
 function App() {
   const [user, setUser] = useState("");
+  const [todos, setTodos] = useState([]);
   return (
     <div>
       <UserBar user={user} setUser={setUser}/>
-      <CreateTodo/>
+      {user && <CreateTodo user={user} todos={todos} setTodos={setTodos} />}
+      <TodoList todos={todos} />
     </div>
     
   )
@@ -17,3 +19,5 @@ function App() {
 }
   
 export default App;
+
+//2:11:02

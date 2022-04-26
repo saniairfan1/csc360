@@ -10,8 +10,7 @@ export default function Login({ setUser }) {
             name="login-username" id="login-username" />
             <label htmlFor="login-password">Password:</label>
             <input type="password" name="login-password" id="login-password" />
-            <input type="submit" value="Login" disabled={username.length ===
-            0} />
+            <input type="submit" value="Login" disabled={username.length ===0 || Login.length === 0} />
         </form>
     );
 }
