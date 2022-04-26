@@ -8,7 +8,7 @@ export default function CreateTodo({user, setTodos, todos}) {
     function handleDesc (evt) {setDesc(evt.target.value)}
     function handleCreate(evt){
         const newTodo = {title, desc};
-        setTodos([newTodo,...todos]);
+        setTodos([...todos,newTodo]);
     }
 
     return (
