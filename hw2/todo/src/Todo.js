@@ -1,15 +1,15 @@
-import React, {useState} from "react";
+import React from "react";
 
-export default function Todo({ title, desc}) {
-
-  const date = new Date().toLocaleDateString()
-  
-  const dateCreated = date
-  const dateCompleted = date
-  
-  const [ checked, setChecked ] = useState(false)
+export default function Todo({ title, desc, dateCreated,dateCompleted,complete, updateTodo, index}) {
   function handleChecked(evt) {
-      setChecked(evt.target.checked)
+      const newTodo = {
+          title,
+          desc,
+          dateCreated,
+          dateCompleted: Date.now(),
+          complete: evt.target.checked,
+      }
+      updateTodo(index,newTodo)
       
   }
 
@@ -17,11 +17,12 @@ export default function Todo({ title, desc}) {
       <div>
           <h1>{title}</h1>
           <label htmlFor="complete-checkbox">Complete Task:</label>
-          <input type="checkbox" name="complete-checkbox" checked={checked} onChange={handleChecked}/>
+          <input type="checkbox" name="complete-checkbox" value={complete} onChange={handleChecked}/>
           <p>{desc}</p>
-          <div>{"Date Created: " + dateCreated}</div>
-       
-          <div>Date Completed: {checked === true ? dateCompleted: ""}</div>
+          <div>Complete: {complete}</div>
+          <div>Date Created: {dateCreated}</div>
+          <div>Date Completed: {dateCompleted}</div>
+          <div></div>
       </div>
   )
 }
