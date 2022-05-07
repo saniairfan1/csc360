@@ -7,7 +7,7 @@ export default function CreateTodo({user, setTodos, todos}) {
     function handleTitle (evt) {setTitle(evt.target.value)}
     function handleDesc (evt) {setDesc(evt.target.value)}
     function handleCreate(evt){
-        const newTodo = {title, desc,dateCreated: Date.now(), dateCompleted: null,complete: false};
+        const newTodo = {title, desc,dateCreated: Date(Date.now()), dateCompleted: null,complete: false};
         setTodos([...todos,newTodo]);
     }
 

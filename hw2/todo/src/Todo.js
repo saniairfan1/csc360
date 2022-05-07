@@ -6,13 +6,13 @@ export default function Todo({ title, desc, dateCreated,dateCompleted,complete, 
           title,
           desc,
           dateCreated,
-          dateCompleted: Date.now(),
+          dateCompleted: Date(Date.now()),
           complete: evt.target.checked,
       }
       updateTodo(index,newTodo)
-      
-  }
+    }
 
+    
   return (
       <div>
           <h1>{title}</h1>
