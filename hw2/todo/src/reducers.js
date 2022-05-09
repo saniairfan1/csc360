@@ -1,7 +1,10 @@
-                //current state, and action
+     
+     //current state, and action
+                //action - js object, type and whatever is typed and then whats passed
 function userReducer(state, action) {
     switch (action.type) {
       case "LOGIN":
+        //make create todo visible
       case "REGISTER":
         return action.username;
       case "LOGOUT":
@@ -13,6 +16,7 @@ function userReducer(state, action) {
 }
 
 function todoReducer(state, action){
+  //create action, logout, return []
     switch(action.type){
       case 'CREATE_TODO':
         //logic for creating todo

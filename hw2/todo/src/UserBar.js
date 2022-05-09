@@ -4,7 +4,7 @@ import Logout from "./Logout";
 import Register from "./Register";
 
 
-export default function UserBar({user, dispatch}) {
+export default function UserBar({user, dispatch, todos = []}) {
 
   if (user) { 
     return (
