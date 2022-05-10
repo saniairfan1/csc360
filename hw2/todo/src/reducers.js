@@ -4,7 +4,6 @@
 function userReducer(state, action) {
     switch (action.type) {
       case "LOGIN":
-        //make create todo visible
       case "REGISTER":
         return action.username;
       case "LOGOUT":
@@ -28,7 +27,25 @@ function todoReducer(state, action){
            dateCompleted: action.dateCompleted,
            complete: action.complete,
          };
-         return [newTodo,...state];
+         return [...state,newTodo];
+      case 'TOGGLE_TODO':
+        let completedDate;
+        if (action.complete) {
+          completedDate = action.dateCompleted;
+        }
+        else{
+          completedDate = null;
+        }
+        const updatedTodo = {
+           title: action.title,
+           desc: action.desc,
+           dateCreated: action.dateCreated,
+           dateCompleted: completedDate,
+           complete: action.complete.toString(),
+        }
+        const currState = state;
+        currState[action.index] = updatedTodo;
+        return currState;
       default:
         return state;
     }

@@ -1,15 +1,8 @@
 import React from "react";
 
-export default function Todo({ title, desc, dateCreated,dateCompleted,complete, updateTodo, index}) {
+export default function Todo({ title, desc, dateCreated,dateCompleted,complete, updateTodo, index, dispatch}) {
   function handleChecked(evt) {
-      const newTodo = {
-          title,
-          desc,
-          dateCreated,
-          dateCompleted: Date(Date.now()),
-          complete: evt.target.checked,
-      }
-      updateTodo(index,newTodo)
+      dispatch({type:'TOGGLE_TODO', title, desc, dateCreated, dateCompleted: Date(Date.now()), complete: evt.target.checked, index});
     }
 
     

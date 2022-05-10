@@ -1,4 +1,4 @@
-import React, {useState,useReducer} from "react";
+import React, {useReducer} from "react";
 import TodoList from "./TodoList";
 import UserBar from "./UserBar";
 import CreateTodo from "./CreateTodo";
@@ -13,7 +13,7 @@ function App() {
     <div>
       <UserBar user={state.user} dispatch={dispatch} todos={state.todos}/>
       {state.user && <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />}
-      <TodoList todos={state.todos} />
+      <TodoList todos={state.todos} dispatch={dispatch} />
     </div>
     
   )
