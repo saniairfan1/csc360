@@ -14,13 +14,3 @@ export default function TodoList({ todos = [], setTodos, dispatch}){
 }
 
 
-//To Do List
-//Title   checkbox   datestarted   dateCompleted 
-
-
-//To Do 
-
-
-//Create ToDo 
-//form that takes in input and displays it above 
-

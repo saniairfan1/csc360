@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function CreateTodo({user, dispatch, todos}) {
+export default function CreateTodo({ dispatch}) {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
@@ -8,7 +8,7 @@ export default function CreateTodo({user, dispatch, todos}) {
     function handleDesc (evt) {setDesc(evt.target.value)}
     function handleCreate(evt){
         //const newTodo = {title, desc,dateCreated: Date(Date.now()), dateCompleted: null,complete: false};
-        dispatch({type:'CREATE_TODO', title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false});
+        dispatch({type:'CREATE_TODO', title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false, deleted: false});
     }
 
     return (
