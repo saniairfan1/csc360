@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Login({ dispatch }) {
     const [ username, setUsername ] = useState("")
     function handleUsername (evt) { setUsername(evt.target.value) }
+
+    useEffect(() => {
+        console.log(username)
+        return () => console.log("component removed from DOM")
+    })
+
     return (
         <form onSubmit={(e) => {e.preventDefault(); dispatch({type: 'LOGIN',username})} }>
             <label htmlFor="login-username">Username:</label>
