@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+//import the context from ./app 
+import { ThemeContext } from "./App";
 
 export default function Login({ dispatch }) {
     const [ username, setUsername ] = useState("")
     function handleUsername (evt) { setUsername(evt.target.value) }
+    //context
+    const theme = useContext(ThemeContext)
 
     useEffect(() => {
         console.log(username)
@@ -11,7 +15,7 @@ export default function Login({ dispatch }) {
 
     return (
         <form onSubmit={(e) => {e.preventDefault(); dispatch({type: 'LOGIN',username})} }>
-            <label htmlFor="login-username">Username:</label>
+            <label style={{color:theme.primary}} htmlFor="login-username">Username:</label>
             <input type="text" value={username} onChange={handleUsername}
             name="login-username" id="login-username" />
             <label htmlFor="login-password">Password:</label>
