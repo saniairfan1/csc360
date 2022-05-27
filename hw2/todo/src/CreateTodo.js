@@ -8,7 +8,7 @@ export default function CreateTodo({ dispatch}) {
     function handleDesc (evt) {setDesc(evt.target.value)}
     function handleCreate(evt){
         //const newTodo = {title, desc,dateCreated: Date(Date.now()), dateCompleted: null,complete: false};
-        dispatch({type:'CREATE_TODO', title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false, deleted: false});
+        dispatch({type:'CREATE_TODO', title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false});
     }
 
     return (
@@ -18,7 +18,6 @@ export default function CreateTodo({ dispatch}) {
             <div>
                 <label htmlFor="create-title">Title:</label>
                 <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" />
-
                 <label htmlFor="create-desc">Description:</label>
                 <input type="text" value={desc} onChange={handleDesc} name="create-desc" id="create-desc"/>
                 <input type="submit" value="Create" disabled={title.length === 0}/>
