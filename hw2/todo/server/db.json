@@ -1,6 +1,34 @@
-
 {
-"posts": [{"id":1,"title":"portal","content":"Some content"}],
-"users":[{ "id": 1, "username": "paul", "password": "badpassword" }],
-"themes": [ { "id": 1, "primaryColor": "deepskyblue", "secondaryColor": "coral" }]
+  "todos": [
+    {
+      "id": 1,
+      "title": "hey"
+    },
+    {
+      "id": 2,
+      "title": "bts"
+    },
+    {
+      "title": "hi",
+      "id": "234234"
+    },
+    {
+      "title": "test",
+      "id": "2322"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "paul",
+      "password": "badpassword"
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    }
+  ]
 }

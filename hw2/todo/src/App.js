@@ -10,6 +10,14 @@ function App() {
   const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: [] });
   //pass it state, obj, num anything
   //const ThemeContext = createContext({primary:"blue"});
+
+  //when this page loads have it fire a request for a post from the backend 
+  useEffect(() => {
+    fetch('/api/todos')
+      .then(result => result.json())
+      .then(todos => dispatch({ type: 'FETCH_TODOS', todos }))
+    }, [])
+
   useEffect(() => {
     if (state.user) {
     document.title = `${state.user}’s Blog`

@@ -49,7 +49,9 @@ function todoReducer(state, action){
       case 'DELETE_TODO':
         //look through current state and remove the todo thats passed
         return state.filter((todo,index) => index !== action.index)
-      default:
+      case 'FETCH_TODOS':
+        return action.todos;
+        default:
         return state;
     }
 }
