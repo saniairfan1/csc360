@@ -1,4 +1,5 @@
 import React, {useReducer, useEffect, createContext} from "react";
+import { useResource } from "react-request-hook";
 import TodoList from "./TodoList";
 import UserBar from "./UserBar";
 import CreateTodo from "./CreateTodo";
@@ -11,12 +12,24 @@ function App() {
   //pass it state, obj, num anything
   //const ThemeContext = createContext({primary:"blue"});
 
-  //when this page loads have it fire a request for a post from the backend 
+  // //when this page loads have it fire a request for a post from the backend 
+  // useEffect(() => {
+  //   fetch('/api/todos')
+  //     .then(result => result.json())
+  //     .then(todos => dispatch({ type: 'FETCH_TODOS', todos }))
+  //   }, [])
+  const [ todos, getTodos ] = useResource(() => ({
+    url: '/todos',
+    method: 'get'
+  }))
+
+  useEffect(getTodos, [])
+
   useEffect(() => {
-    fetch('/api/todos')
-      .then(result => result.json())
-      .then(todos => dispatch({ type: 'FETCH_TODOS', todos }))
-    }, [])
+  if (todos && todos.data) {
+  dispatch({ type: 'FETCH_TODOS', todos: todos.data })
+  }
+  }, [todos])
 
   useEffect(() => {
     if (state.user) {

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useResource } from "react-request-hook";
 
 export default function CreateTodo({ dispatch}) {
     const [title, setTitle] = useState("");
@@ -6,8 +7,15 @@ export default function CreateTodo({ dispatch}) {
 
     function handleTitle (evt) {setTitle(evt.target.value)}
     function handleDesc (evt) {setDesc(evt.target.value)}
+
+    const [todo , createTodo ] = useResource(({ title, desc, dateCreated, complete, dateCompleted}) => ({
+        url: '/todos',
+        method: 'post',
+        data: { title, desc, dateCreated, complete, dateCompleted}
+    }))
     function handleCreate(evt){
         //const newTodo = {title, desc,dateCreated: Date(Date.now()), dateCompleted: null,complete: false};
+        createTodo({title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false})
         dispatch({type:'CREATE_TODO', title, desc, dateCreated: Date(Date.now()), dateCompleted: null, complete: false});
     }
 
