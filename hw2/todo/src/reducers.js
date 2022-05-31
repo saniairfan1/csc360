@@ -51,7 +51,7 @@ function todoReducer(state, action){
         return state.filter((todo,index) => index !== action.index)
       case 'FETCH_TODOS':
         return action.todos;
-        default:
+      default:
         return state;
     }
 }

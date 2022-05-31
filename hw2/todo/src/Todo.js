@@ -1,10 +1,17 @@
 import React from "react";
+import { useResource } from "react-request-hook";
 
 export default function Todo({ title, desc, dateCreated,dateCompleted,complete, index, dispatch, todos}) {
   function handleChecked(evt) {
       dispatch({type:'TOGGLE_TODO', title, desc, dateCreated, dateCompleted: Date(Date.now()), complete: evt.target.checked, index});
   }
+  const [todo, deleteTodo] = useResource(({ index,title, desc, dateCreated, complete, dateCompleted}) => ({
+    url: '/todos',
+    method: 'delete',
+    data: { index, title, desc, dateCreated, complete, dateCompleted}
+}))
   function handleDelete(){
+    deleteTodo({index, title, desc, dateCreated, dateCompleted, complete});
     dispatch({type: 'DELETE_TODO', index})
   }
 
